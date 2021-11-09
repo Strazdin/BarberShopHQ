@@ -30,7 +30,7 @@
    <div class="form-group">
       <label>Your hairdresser:</label>
       <select name="hairdresser" class="form-control">
-         <% @results_barber.each do |item| %>
+         <% @barbers.each do |item| %>
             <option <%= @hairdresser == item['name'] ? 'selected' : '' %>> <%= item['name'] %> </option>
          <% end %>
       </select>
