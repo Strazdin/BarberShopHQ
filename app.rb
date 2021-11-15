@@ -54,3 +54,12 @@ post '/visit' do
 
 	erb :visit
 end
+
+post '/contacts' do
+
+	@contacts_name = params[:contacts_name].capitalize
+	@contacts_mail = params[:contacts_mail]
+	@contacts_text = params[:contacts_text]
+
+	erb :contacts
+end
