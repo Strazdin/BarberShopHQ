@@ -67,7 +67,7 @@ post '/contacts' do
 	@contacts_mail = params[:contacts_mail]
 	@contacts_text = params[:contacts_text]
 
-	save_form_data_to_database_contacts
+		save_form_data_to_database_contacts
 
 	erb :contacts
 end
