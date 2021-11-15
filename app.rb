@@ -22,12 +22,18 @@ before do
 	@barbers = Barber.order "created_at DESC"
 end
 
-def save_form_data_to_database
+def save_form_data_to_database_clients
 	Client.create   :name  		=>  "#{@user_name}",				   
 					:phone 		=>  "#{@phone}",				   
 					:datestamp 	=>  "#{@date_time}",				   
 					:barber 	=>  "#{@hairdresser}",				   
 					:color		=>  "#{@color}"
+end
+
+def save_form_data_to_database_contacts
+	Contact.create  :name  		=>  "#{@contacts_name}",				   
+					:mail 		=>  "#{@contacts_mail}",				   
+					:text 	    =>  "#{@contacts_text}"				   
 end
 
 get '/' do
@@ -50,7 +56,7 @@ post '/visit' do
 		@hairdresser = params[:hairdresser]
 		@color		 = params[:color]
 
-		save_form_data_to_database
+		save_form_data_to_database_clients
 
 	erb :visit
 end
@@ -60,6 +66,8 @@ post '/contacts' do
 	@contacts_name = params[:contacts_name].capitalize
 	@contacts_mail = params[:contacts_mail]
 	@contacts_text = params[:contacts_text]
+
+	save_form_data_to_database_contacts
 
 	erb :contacts
 end
