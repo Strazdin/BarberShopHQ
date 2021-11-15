@@ -19,13 +19,11 @@ before do
 end
 
 def save_form_data_to_database
-	Client.create  
-	:name  		=> "#{@user_name}",				   
-	:phone 		=> "#{@phone}",				   
-	:datestamp 	=> "#{@date_time}",				   
-	:barber 	=> "#{@hairdresser}",				   
-	:color		=> "#{@color}"
-
+	Client.create   :name  		=>  "#{@user_name}",				   
+					:phone 		=>  "#{@phone}",				   
+					:datestamp 	=>  "#{@date_time}",				   
+					:barber 	=>  "#{@hairdresser}",				   
+					:color		=>  "#{@color}"
 end
 
 get '/' do
@@ -34,6 +32,10 @@ end
 
 get '/visit' do
 	erb :visit
+end
+
+get '/contacts' do
+	erb :contacts
 end
 
 post '/visit' do
